@@ -28,7 +28,7 @@ b. npm run start
 
 6. to run the seed to fill the DB with test data put the following link in your browser and run it `http://localhost:3001/api/games/seed`
 
-7. run the fronted with the followin commands:
+7. run the fronted with the followin commands in a new terminal:
 
 ```
 a. npm install
