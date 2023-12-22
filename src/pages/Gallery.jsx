@@ -12,6 +12,7 @@ export function Gallery() {
   const [byGenre, setByGenre] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [pickedGame, setPickedGame] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
   const [favorites, setFavorites] = useState(() => {
     const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     return storedFavorites;
@@ -50,11 +51,15 @@ export function Gallery() {
 
   const handleInputChange = (e) => {
     const term = e.target.value;
-    const filteredGames = games.filter((game) => {
-      if (byGenre) return game.genres.toLowerCase().includes(term.toLowerCase());
-      else return game.title.toLowerCase().includes(term.toLowerCase());
-    });
+    setSearchTerm(term);
+  };
 
+  const onSearch = () => {
+    console.log("entro");
+    const filteredGames = games.filter((game) => {
+      if (byGenre) return game.genres.toLowerCase().includes(searchTerm.toLowerCase());
+      else return game.title.toLowerCase().includes(searchTerm.toLowerCase());
+    });
     setFiltered(filteredGames);
   };
 
@@ -79,12 +84,15 @@ export function Gallery() {
               <div className="w-[full] flex md:flex-row flex-col justify-center items-center mb-5">
                 <div className="w-full flex justify-center items-center mb-3">
                   <input
+                    value={searchTerm}
                     type="text"
                     onChange={handleInputChange}
                     placeholder="Search..."
                     className=" bg-neutral-900 rounded-md p-2 w-full md:w-[50%]"
                   />
-                  <IoSearch className="w-6 h-6 text-gray-300 relative right-8" />
+                  <button onClick={onSearch}>
+                    <IoSearch className="w-6 h-6 text-gray-300 relative right-8" />
+                  </button>
                 </div>
                 <div className="w-[100px]">
                   <label className="mr-3" htmlFor="by-genre">
