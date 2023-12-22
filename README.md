@@ -31,8 +31,8 @@ b. npm run start
 7. run the fronted with the followin commands:
 
 ```
-npm install
-npm dev
+a. npm install
+b. npm run dev
 ```
 
 9. open the Fronted Page followin the route `http://127.0.0.1:5173/` and the project is running ;) good look.
