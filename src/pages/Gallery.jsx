@@ -34,6 +34,11 @@ export function Gallery() {
     setFavorites(storedFavorites);
   }, []);
 
+  useEffect(() => {
+    console.log(favorites);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
+
   const toggleFavorite = (id) => {
     const isFavorite = favorites.includes(id);
     if (isFavorite) {
@@ -42,11 +47,6 @@ export function Gallery() {
       setFavorites([...favorites, id]);
     }
   };
-
-  useEffect(() => {
-    console.log(favorites);
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
 
   const handleInputChange = (e) => {
     const term = e.target.value;
