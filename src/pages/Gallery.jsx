@@ -72,6 +72,12 @@ export function Gallery() {
     setShowModal(true);
   };
 
+  const onEnter = (event) => {
+    if (event.key === "Enter") {
+      onSearch();
+    }
+  };
+
   return (
     <>
       <Header />
@@ -89,6 +95,7 @@ export function Gallery() {
                     onChange={handleInputChange}
                     placeholder="Search..."
                     className=" bg-neutral-900 rounded-md p-2 w-full md:w-[50%]"
+                    onKeyDown={onEnter}
                   />
                   <button onClick={onSearch}>
                     <IoSearch className="w-6 h-6 text-gray-300 relative right-8" />
