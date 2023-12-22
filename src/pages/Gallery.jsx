@@ -63,7 +63,7 @@ export function Gallery() {
     setFiltered(filteredGames);
   };
 
-  const handleByGenreCange = () => {
+  const handleByGenreChange = () => {
     setByGenre(!byGenre);
   };
 
@@ -98,7 +98,7 @@ export function Gallery() {
                   <label className="mr-3" htmlFor="by-genre">
                     by genre
                   </label>
-                  <input type="checkbox" id="by-genre" onChange={handleByGenreCange} checked={byGenre} />
+                  <input type="checkbox" id="by-genre" onChange={handleByGenreChange} checked={byGenre} />
                 </div>
               </div>
             </div>
